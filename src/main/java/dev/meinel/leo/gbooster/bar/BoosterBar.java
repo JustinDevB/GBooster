@@ -93,20 +93,13 @@ public class BoosterBar {
                 .getBoosterMultiplier(BoosterType.MINECRAFT, false);
         float mcmmoValue = (float) main.getActiveBoostersManager()
                 .getBoosterMultiplier(BoosterType.MCMMO, false);
-        float jobsXpValue = (float) main.getActiveBoostersManager()
-                .getBoosterMultiplier(BoosterType.JOBS_XP, true);
-        float jobsMoneyValue = (float) main.getActiveBoostersManager()
-                .getBoosterMultiplier(BoosterType.JOBS_MONEY, true);
+
         appendTitleBuilderIfNecessary(titleBuilder, "minecraft", minecraftValue);
         appendTitleBuilderIfNecessary(titleBuilder, "mcmmo", mcmmoValue);
-        appendTitleBuilderIfNecessary(titleBuilder, "jobs-xp", jobsXpValue);
-        appendTitleBuilderIfNecessary(titleBuilder, "jobs-money", jobsMoneyValue);
         appendTitleBuilderIfNecessary(titleBuilder, DURATION, durationValue);
         return titleBuilder.toString()
                 .replace("%minecraft%", String.valueOf((short) (minecraftValue * 100)))
                 .replace("%mcmmo%", String.valueOf((short) (mcmmoValue * 100)))
-                .replace("%jobs_xp%", String.valueOf((short) (jobsXpValue * 100)))
-                .replace("%jobs_money%", String.valueOf((short) (jobsMoneyValue * 100)))
                 .replace("%duration%", String.valueOf(durationValue));
     }
 

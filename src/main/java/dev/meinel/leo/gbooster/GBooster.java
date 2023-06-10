@@ -13,10 +13,6 @@ package dev.meinel.leo.gbooster;
 import dev.meinel.leo.gbooster.bar.BoosterBar;
 import dev.meinel.leo.gbooster.commands.GBoosterCmd;
 import dev.meinel.leo.gbooster.files.Messages;
-import dev.meinel.leo.gbooster.listeners.JobsExpGain;
-import dev.meinel.leo.gbooster.listeners.JobsPayment;
-import dev.meinel.leo.gbooster.listeners.JobsScheduleStart;
-import dev.meinel.leo.gbooster.listeners.JobsScheduleStop;
 import dev.meinel.leo.gbooster.listeners.McMMOPlayerXpGain;
 import dev.meinel.leo.gbooster.listeners.PlayerExpChange;
 import dev.meinel.leo.gbooster.listeners.PlayerJoin;
@@ -75,15 +71,6 @@ public final class GBooster extends JavaPlugin {
     }
 
     private void registerListeners() {
-        if (getServer().getPluginManager().getPlugin("Jobs") != null) {
-            Bukkit.getLogger().info("Found Jobs! - Registering listeners!");
-            getServer().getPluginManager().registerEvents(new JobsExpGain(), this);
-            getServer().getPluginManager().registerEvents(new JobsPayment(), this);
-            getServer().getPluginManager().registerEvents(new JobsScheduleStart(), this);
-            getServer().getPluginManager().registerEvents(new JobsScheduleStop(), this);
-        } else {
-            Bukkit.getLogger().info("Could not find Jobs - Ignoring.");
-        }
         if (getServer().getPluginManager().getPlugin("mcMMO") != null) {
             Bukkit.getLogger().info("Found McMMO! - Registering listener!");
             getServer().getPluginManager().registerEvents(new McMMOPlayerXpGain(), this);
